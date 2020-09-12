@@ -1,17 +1,14 @@
 [![edit-in-WebComponents.dev](https://webcomponents.dev/assets/ext/edit_in_wcd.svg)](https://webcomponents.dev/edit/mbjvuyNiiEHHrsPxOnAE)
-# LighterHTML Starter Kit
+# A simple file input web component
 
-### Starter kit result
+### Work in progress
 
 ```showcase
-  <my-counter></my-counter>
+  <file-input></file-input>
 ```
 
 ### Links
 
-- [Official website](https://lit-html.polymer-project.org/)
-- [GitHub](https://github.com/Polymer/lit-html)
-- [Issues](https://github.com/Polymer/lit-html/issues)
-- [Chat](https://www.polymer-project.org/slack-invite)
+Uses [lit-html](https://github.com/Polymer/lit-html) for rendering.
 
 > Created with [WebComponents.dev](https://webcomponents.dev)
