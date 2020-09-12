@@ -110,6 +110,7 @@ class Fileinput extends HTMLElement {
     `;
   }
   remove(e) {
+    //
     const name = e.currentTarget.name;
     this.files = this.files.filter((file) => file.name !== name);
     this.update();
