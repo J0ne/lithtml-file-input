@@ -11,7 +11,6 @@ class Fileinput extends HTMLElement {
     const fileInput = this.shadowRoot.querySelector("input[type=file]");
 
     fileInput.addEventListener("change", (e) => {
-      console.log("->", e.currentTarget.files);
       this.files = [...this.files, ...e.currentTarget.files];
 
       this.update();
@@ -111,7 +110,7 @@ class Fileinput extends HTMLElement {
     `;
   }
   save() {
-    console.table(this.files);
+    // todo
   }
   remove(e) {
     //
