@@ -32,6 +32,8 @@ class Fileinput extends HTMLElement {
           flex-wrap: wrap;
           padding: 5px;
           height: auto;
+          width: 100%;
+          background-color: lightgrey;
         }
         .thumbnail {
           position: relative;
@@ -52,18 +54,22 @@ class Fileinput extends HTMLElement {
           text-align: center;
         }
         label {
-          background-color: #7F9CCB;
+          background-color: lightblue;
           padding: 5px 10px;
           border-radius: 5px;
-          border: 1px ridge black;
+          border: 1px solid blue;
           font-size: 0.8rem;
           height: auto;
         }
-        .fileinput {
-          max-width: 50%;
+        .btn {
+          background-color: lightblue;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid blue;
+          font-size: 0.8rem;
           height: auto;
+          float: right;
         }
-
         .close {
           border: 1px solid grey;
           background-color: white;
@@ -78,36 +84,34 @@ class Fileinput extends HTMLElement {
           cursor: pointer;
         }
       </style>
-      <div class="fileinput">
-        <div class="preview">
-          ${this.files.length > 0
-            ? html` ${this.files.map(
-                (file) =>
-                  html`<div class="thumbnail">
-                    <button
-                      name="${file.name}"
-                      @click="${(e) => this.remove(e)}"
-                      class="close"
-                    >
-                      X
-                    </button>
-                    <img
-                      src="${URL.createObjectURL(file)}"
-                      alt="${file.name}"
-                    />
-                  </div>`
-              )}`
-            : html`<p>Ei valittuja tiedostoja</p>`}
-        </div>
-        <div class="btn">
-          <label for="fileUploads">Valitse</label>
-          <input multiple id="fileUploads" type="file" />
-        </div>
-        ${this.files.length > 0
-          ? html`<button class="btn">Tallenna</button>`
-          : ""}
+      <div class="preview">
+        <label for="fileUploads">Valitse</label>
+        <input multiple id="fileUploads" type="file" />
       </div>
+      <div class="preview">
+        ${this.files.length > 0
+          ? html` ${this.files.map(
+              (file) =>
+                html`<div class="thumbnail">
+                  <button
+                    name="${file.name}"
+                    @click="${(e) => this.remove(e)}"
+                    class="close"
+                  >
+                    X
+                  </button>
+                  <img src="${URL.createObjectURL(file)}" alt="${file.name}" />
+                </div>`
+            )}`
+          : html`<p>Ei valittuja tiedostoja</p>`}
+      </div>
+      ${this.files.length > 0
+        ? html`<button @click="${this.save()}" class="btn">Tallenna</button>`
+        : ""}
     `;
+  }
+  save() {
+    console.table(this.files);
   }
   remove(e) {
     //
